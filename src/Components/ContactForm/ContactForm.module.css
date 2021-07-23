@@ -1,0 +1,43 @@
+.thumb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 340px;
+
+  border: 1px solid black;
+  padding: 20px;
+  text-align: center;
+}
+
+.name {
+  font-size: 24px;
+}
+
+p {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.input {
+  width: 220px;
+  padding: 5px;
+  outline: cadetblue;
+}
+
+.input:focus {
+  border: 3px solid rgba(0, 139, 139, 0.445);
+}
+
+.button {
+  display: block;
+  width: 100px;
+  border: 1px solid rgba(128, 128, 128, 0.438);
+  border-radius: 3px;
+  margin-top: 25px;
+}
+.button:hover,
+.button:focus {
+  background-color: rgba(0, 139, 139, 0.445);
+  color: bisque;
+}

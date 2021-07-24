@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { v4 as uuidv4 } from "uuid";
 import s from "./ContactForm.module.css";
 
 class Form extends Component {
@@ -8,13 +9,22 @@ class Form extends Component {
     number: "",
   };
 
+  contactsId = uuidv4();
+  numberId = uuidv4();
+
   handleNameChange = (e) => {
     const { name, value } = e.currentTarget;
     this.setState({ [name]: value });
   };
 
   submitForm = (e) => {
-    console.log(e.currentTarget.value);
+    e.preventDefault();
+    this.props.onSubmit(this.state);
+    this.reset();
+  };
+
+  reset = () => {
+    this.setState({ name: "", number: "" });
   };
 
   render() {
@@ -27,6 +37,7 @@ class Form extends Component {
             <input
               type="text"
               name="name"
+              id={this.contactsId}
               pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
               title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
               value={this.state.name}
@@ -40,6 +51,7 @@ class Form extends Component {
             <input
               type="tel"
               name="number"
+              id={this.numberId}
               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
               title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
               required
@@ -49,7 +61,9 @@ class Form extends Component {
             />
           </label>
 
-          <button className={s.button}>Add contact</button>
+          <button type="submit" className={s.button}>
+            Add contact
+          </button>
         </form>
       </div>
     );

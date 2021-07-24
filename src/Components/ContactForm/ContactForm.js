@@ -4,7 +4,6 @@ import s from "./ContactForm.module.css";
 
 class Form extends Component {
   state = {
-    contacts: [],
     name: "",
     number: "",
   };

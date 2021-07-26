@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { v4 as uuidv4 } from "uuid";
-import s from "./ContactForm.module.css";
+import s from "./Form.module.css";
 
 class Form extends Component {
   static propTypes = {

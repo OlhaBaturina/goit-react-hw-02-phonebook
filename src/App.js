@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Form from "./Components/ContactForm/ContactForm";
+import Form from "./Components/Form/Form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Contacts from "./Components//ContactList/ContactList";
-import Filter from "./Components/FilterContacts/FilterContats";
+import Contacts from "./Components/Contact/Contact";
+import Filter from "./Components/Filter/Filter";
 import s from "./App.css";
 
 class App extends Component {

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import s from "./ContactList.module.css";
+import s from "./Contact.module.css";
 
 const Contacts = ({ contacts, deleteFunction }) => {
   return (

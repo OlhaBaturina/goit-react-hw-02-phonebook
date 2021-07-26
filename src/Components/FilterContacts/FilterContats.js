@@ -1,23 +1,24 @@
 import React from "react";
-import { v4 as uuidv4 } from "uuid";
+import PropTypes from "prop-types";
+import s from "./FilterContact.module.css";
 
-const filterIdInput = uuidv4();
-
-const Filter = ({ value, onFilterChange }) => {
+const Filter = ({ value, onChange }) => {
   return (
-    <div className="Filter">
-      <label htmlFor={filterIdInput}>
-        <p className="Filter-text">Find contacts by name</p>
-        <input
-          id={filterIdInput}
-          className="Filter-input"
-          type="text"
-          value={value}
-          onChange={({ target: { value } }) => onFilterChange(value)}
-        />
-      </label>
-    </div>
+    <label className={s.label}>
+      Filter contact by name
+      <input
+        className={s.input}
+        type="text"
+        value={value}
+        onChange={onChange}
+      />
+    </label>
   );
+};
+
+Filter.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default Filter;

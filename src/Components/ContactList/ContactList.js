@@ -1,38 +1,35 @@
 import React from "react";
 import PropTypes from "prop-types";
-// import './ContactList.css';
-import ListItem from "../ListItem/ListItem";
+import s from "./ContactList.module.css";
 
-const ContactList = ({ contacts, onDeleteContact }) => {
+const Contacts = ({ contacts, deleteFunction }) => {
   return (
     <div>
-      <h2 className="Heading">Contacts</h2>
-
-      <ul className="ContactList">
-        {contacts.map(({ id, name, number }) => (
-          <ListItem
-            key={id}
-            name={name}
-            number={number}
-            onDelete={() => onDeleteContact(id)}
-          />
-        ))}
+      <ul>
+        {contacts.map((contact) => {
+          return (
+            <li className={s.contactList} key={contact.id}>
+              {contact.name}: {contact.number}
+              <button
+                className={s.button}
+                type="button"
+                onClick={() => {
+                  deleteFunction(contact.id);
+                }}
+              >
+                Delete
+              </button>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
 };
 
-ContactList.propTypes = {
-  contacts: PropTypes.oneOfType([
-    PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        number: PropTypes.string.isRequired,
-      })
-    ),
-    PropTypes.array,
-  ]),
+Contacts.propTypes = {
+  contacts: PropTypes.array.isRequired,
+  deleteFunction: PropTypes.func.isRequired,
 };
 
-export default ContactList;
+export default Contacts;

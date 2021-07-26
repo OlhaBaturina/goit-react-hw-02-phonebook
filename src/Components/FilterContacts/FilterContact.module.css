@@ -2,4 +2,14 @@
 }
 
 .input {
+  width: 200px;
+  margin-bottom: 25px;
+  margin-left: 15px;
+  padding: 5px;
+  border: 1px solid rgba(1, 62, 65, 0.288);
+  outline: none;
+}
+
+.input:focus {
+  border: 3px solid rgba(0, 139, 139, 0.445);
 }

@@ -5,7 +5,7 @@ import s from "./ContactList.module.css";
 const Contacts = ({ contacts, deleteFunction }) => {
   return (
     <div>
-      <ul>
+      <ul className={s.thumb}>
         {contacts.map((contact) => {
           return (
             <li className={s.contactList} key={contact.id}>
